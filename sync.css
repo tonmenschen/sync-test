@@ -5,21 +5,22 @@ html, body {
     height: 100%;
     box-sizing: border-box;
     font-family: Courier New, Courier, monospace;
+    background-color: white;
 }
 
 .clock {
     position: absolute;
-    width: 90vmin;
-    height: 90vmin;
+    overflow: hidden;
+    width: 85vmin;
+    height: 85vmin;
     margin: auto;
     left: 0;
     right: 0;
     top: 0;
     bottom: 5vmin;
-    border: 1px solid black;
-    background-color: green;
+    border: 3vmin solid gray;
+    background-color: #e0e0e0;
     border-radius: 50%;
-    border: 2px solid black;
     --fps: 25;
 }
 
@@ -30,118 +31,78 @@ html, body {
     width: 100%;
     height: 100%;
     transform: rotate(var(--rotation));
-    font-size: 3.5vmin;
+    font-size: 3vmin;
+    color: white;
 }
 
-    .clock .dot00 {
-        --rotation: calc(360deg / var(--fps) * 0);
-    }
+.clock .dot00 {--rotation: calc(360deg / var(--fps) * 0);}
+.clock .dot01 {--rotation: calc(360deg / var(--fps) * 1);}
+.clock .dot02 {--rotation: calc(360deg / var(--fps) * 2);}
+.clock .dot03 {--rotation: calc(360deg / var(--fps) * 3);}
+.clock .dot04 {--rotation: calc(360deg / var(--fps) * 4);}
+.clock .dot05 {--rotation: calc(360deg / var(--fps) * 5);}
+.clock .dot06 {--rotation: calc(360deg / var(--fps) * 6);}
+.clock .dot07 {--rotation: calc(360deg / var(--fps) * 7);}
+.clock .dot08 {--rotation: calc(360deg / var(--fps) * 8);}
+.clock .dot09 {--rotation: calc(360deg / var(--fps) * 9);}
+.clock .dot10 {--rotation: calc(360deg / var(--fps) * 10);}
+.clock .dot11 {--rotation: calc(360deg / var(--fps) * 11);}
+.clock .dot12 {--rotation: calc(360deg / var(--fps) * 12);}
+.clock .dot13 {--rotation: calc(360deg / var(--fps) * 13);}
+.clock .dot14 {--rotation: calc(360deg / var(--fps) * 14);}
+.clock .dot15 {--rotation: calc(360deg / var(--fps) * 15);}
+.clock .dot16 {--rotation: calc(360deg / var(--fps) * 16);}
+.clock .dot17 {--rotation: calc(360deg / var(--fps) * 17);}
+.clock .dot18 {--rotation: calc(360deg / var(--fps) * 18);}
+.clock .dot19 {--rotation: calc(360deg / var(--fps) * 19);}
+.clock .dot20 {--rotation: calc(360deg / var(--fps) * 20);}
+.clock .dot21 {--rotation: calc(360deg / var(--fps) * 21);}
+.clock .dot22 {--rotation: calc(360deg / var(--fps) * 22);}
+.clock .dot23 {--rotation: calc(360deg / var(--fps) * 23);}
+.clock .dot24 {--rotation: calc(360deg / var(--fps) * 24);}
 
-    .clock .dot01 {
-        --rotation: calc(360deg / var(--fps) * 1);
-    }
-
-    .clock .dot02 {
-        --rotation: calc(360deg / var(--fps) * 2);
-    }
-
-    .clock .dot03 {
-        --rotation: calc(360deg / var(--fps) * 3);
-    }
-
-    .clock .dot04 {
-        --rotation: calc(360deg / var(--fps) * 4);
-    }
-
-    .clock .dot05 {
-        --rotation: calc(360deg / var(--fps) * 5);
-    }
-
-    .clock .dot06 {
-        --rotation: calc(360deg / var(--fps) * 6);
-    }
-
-    .clock .dot07 {
-        --rotation: calc(360deg / var(--fps) * 7);
-    }
-
-    .clock .dot08 {
-        --rotation: calc(360deg / var(--fps) * 8);
-    }
-
-    .clock .dot09 {
-        --rotation: calc(360deg / var(--fps) * 9);
-    }
-
-    .clock .dot10 {
-        --rotation: calc(360deg / var(--fps) * 10);
-    }
-
-    .clock .dot11 {
-        --rotation: calc(360deg / var(--fps) * 11);
-    }
-
-    .clock .dot12 {
-        --rotation: calc(360deg / var(--fps) * 12);
-    }
-
-    .clock .dot13 {
-        --rotation: calc(360deg / var(--fps) * 13);
-    }
-
-    .clock .dot14 {
-        --rotation: calc(360deg / var(--fps) * 14);
-    }
-
-    .clock .dot15 {
-        --rotation: calc(360deg / var(--fps) * 15);
-    }
-
-    .clock .dot16 {
-        --rotation: calc(360deg / var(--fps) * 16);
-    }
-
-    .clock .dot17 {
-        --rotation: calc(360deg / var(--fps) * 17);
-    }
-
-    .clock .dot18 {
-        --rotation: calc(360deg / var(--fps) * 18);
-    }
-
-    .clock .dot19 {
-        --rotation: calc(360deg / var(--fps) * 19);
-    }
-
-    .clock .dot20 {
-        --rotation: calc(360deg / var(--fps) * 20);
-    }
-
-    .clock .dot21 {
-        --rotation: calc(360deg / var(--fps) * 21);
-    }
-
-    .clock .dot22 {
-        --rotation: calc(360deg / var(--fps) * 22);
-    }
-
-    .clock .dot23 {
-        --rotation: calc(360deg / var(--fps) * 23);
-    }
-
-    .clock .dot24 {
-        --rotation: calc(360deg / var(--fps) * 24);
-    }
+@font-face {
+    font-family: tc-font;
+    src: url('tc-font.ttf'); 
+}
 
 #timecode {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    color: black;
+    position: absolute;
+    width: 70vmin;
+    height: 15vmin;
+    display: flex;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    align-items: center;
+    justify-content: center;
+    margin: 35vmin auto;
+    font-size: 3em;
+    font-size: 7vmin;
+    font-family: tc-font, Courier New, Courier, monospace;
+    color: red;
+    background-color: black;
+    border: 0.5vmin solid gray;
+    border-radius: 3vmin;
+}
+
+#status {
+    position: absolute;
+    width: 70vmin;
+    height: 15vmin;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 10vmin;
+    margin: 20vmin auto;
+    font-size: 1.5em;
+    font-size: 3.5vmin;
+    font-family: Courier New, Courier, monospace;
+    color: black;
 }
 
 .ping-pong {
@@ -162,5 +123,4 @@ html, body {
     transition-duration: 1s;
     transition-timing-function: ease-in;
     left: 0;
-    /*    left: calc(100vw - 5vmin);*/
 }

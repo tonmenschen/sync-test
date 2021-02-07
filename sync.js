@@ -1,9 +1,10 @@
 ﻿const fps = 25;
-setInterval(sync, 1000 / fps);
+setInterval(sync, 1000 / fps / 2);
 
 var leftBeep;
 var rightBeep;
-
+leftBeep = new sound("left.wav");
+rightBeep = new sound("right.wav");
 
 
 function sound(src) {
@@ -20,8 +21,6 @@ function sound(src) {
 
 
 function sync() {
-    leftBeep = new sound("left.wav");
-    rightBeep = new sound("right.wav");
     let date = new Date();
     let hrs = date.getHours();
     let mins = date.getMinutes();   
@@ -43,14 +42,14 @@ function sync() {
     var dot = document.getElementsByClassName("dot");
     for (var i = 0; i < dot.length; i++)
     {
-        dot.item(i).style.color = 'black';
+        dot.item(i).style.color = 'white';
     }
     document.getElementById(frames).style.color = 'red';
 
     /* Flash every second */
     if (frames < 1)
     {
-        document.getElementById("clock").style.backgroundColor = 'red';
+        document.getElementById("clock").style.borderColor = 'red';
         leftBeep.play();
 
         if (secs % 2 == 0) {
@@ -64,14 +63,8 @@ function sync() {
     }
     else
     {
-        document.getElementById("clock").style.backgroundColor = 'blue';
+        document.getElementById("clock").style.borderColor = 'gray';
     }
-
-    /* Move box left and right*/
-    //document.getElementById("box").style.left = 'calc(' + (1 / fps * (frames)) + ' * ( 100vw - 5vmin))'; 
-    //document.getElementById("box").style.transform = 'translateX(calc(100vw / 25 * ' + frames + ' - 5vmin));
-    //document.getElementById("box").style.transform = 'translateX(calc(100vw / 25 * ' + frames + ' - 0vmin))';
-
 }
 
 sync();
