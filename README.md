@@ -21,3 +21,6 @@ HTML audio video sync test
 - Set invervall @ js "drops" frames -> double precission (high load?)
 - Autoplay audio not allowed -> require user interaction first
 - HTML5 audio trigger lag
+
+# workflow
+- Local Editor: Visual Studio Code
