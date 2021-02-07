@@ -1,6 +1,8 @@
 # sync-test
 HTML audio video sync test
 
+![alt text](https://repository-images.githubusercontent.com/336749060/2cd09000-6953-11eb-9761-7e9848311cdd)
+
 # features
 - AV sync via FPS-Clock
 - AV sync via ping-pong (L/R)
