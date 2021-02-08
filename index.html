@@ -15,6 +15,16 @@
     <title>Sync-Test</title>
 </head>
 <body>
+    <audio id="leftBeep" preload="auto" controls="none" style="display: none;">
+        <source src="left.wav" type="audio/wav">
+        <source src="left.mp3" type="audio/mpeg">
+        Your browser does not support the <code>audio</code> element.
+    </audio>
+    <audio id="rightBeep" preload="auto" controls="none" style="display: none;">
+        <source src="right.wav" type="audio/wav">
+        <source src="right.mp3" type="audio/mpeg">
+        Your browser does not support the <code>audio</code> element.
+    </audio>
     <div id="clock" class="clock">
         <div id="00" class="dot dot00">&#11044;</div>
         <div id="01" class="dot dot01">&#11044;</div>
@@ -41,21 +51,51 @@
         <div id="22" class="dot dot22">&#11044;</div>
         <div id="23" class="dot dot23">&#11044;</div>
         <div id="24" class="dot dot24">&#11044;</div>
-        <div id="timecode">00:00:00:00</div>
-        <div id="status">Click to start audio</div>
+        <div id="25" class="dot dot25">&#11044;</div>
+        <div id="26" class="dot dot26">&#11044;</div>
+        <div id="27" class="dot dot27">&#11044;</div>
+        <div id="28" class="dot dot28">&#11044;</div>
+        <div id="29" class="dot dot29">&#11044;</div>
+        <div id="30" class="dot dot30">&#11044;</div>
+        <div id="31" class="dot dot31">&#11044;</div>
+        <div id="32" class="dot dot32">&#11044;</div>
+        <div id="33" class="dot dot33">&#11044;</div>
+        <div id="34" class="dot dot34">&#11044;</div>
+        <div id="35" class="dot dot35">&#11044;</div>
+        <div id="36" class="dot dot36">&#11044;</div>
+        <div id="37" class="dot dot37">&#11044;</div>
+        <div id="38" class="dot dot38">&#11044;</div>
+        <div id="39" class="dot dot39">&#11044;</div>
+        <div id="40" class="dot dot40">&#11044;</div>
+        <div id="41" class="dot dot41">&#11044;</div>
+        <div id="42" class="dot dot42">&#11044;</div>
+        <div id="43" class="dot dot43">&#11044;</div>
+        <div id="44" class="dot dot44">&#11044;</div>
+        <div id="45" class="dot dot45">&#11044;</div>
+        <div id="46" class="dot dot46">&#11044;</div>
+        <div id="47" class="dot dot47">&#11044;</div>
+        <div id="48" class="dot dot48">&#11044;</div>
+        <div id="49" class="dot dot49">&#11044;</div>
+        <div id="50" class="dot dot50">&#11044;</div>
+        <div id="51" class="dot dot51">&#11044;</div>
+        <div id="52" class="dot dot52">&#11044;</div>
+        <div id="53" class="dot dot53">&#11044;</div>
+        <div id="54" class="dot dot54">&#11044;</div>
+        <div id="55" class="dot dot55">&#11044;</div>
+        <div id="56" class="dot dot56">&#11044;</div>
+        <div id="57" class="dot dot57">&#11044;</div>
+        <div id="58" class="dot dot58">&#11044;</div>
+        <div id="59" class="dot dot59">&#11044;</div>
+        <div id="timecode">WA:IT:SY:NC</div>
+        <div class="info">
+            <!-- <div id="status" class="status">Click to start audio</div> -->
+            <div id="clientTime" class="status">Client-Time: </div>
+            <div id="serverTime" class="status">Server-Time: </div>
+            <div id="deltaTime" class="status">Server-Time: </div>
+        </div>
     </div>
     <div class="ping-pong">
         <div id="box" class="box"></div>
     </div>
-    <audio id="leftBeep" preload="auto" controls="none" style="display: none;">
-        <source src="left.wav" type="audio/wav">
-        <source src="left.mp3" type="audio/mpeg">
-        Your browser does not support the <code>audio</code> element.
-    </audio>
-    <audio id="rightBeep" preload="auto" controls="none" style="display: none;">
-        <source src="right.wav" type="audio/wav">
-        <source src="right.mp3" type="audio/mpeg">
-        Your browser does not support the <code>audio</code> element.
-    </audio>
 </body>
 </html>

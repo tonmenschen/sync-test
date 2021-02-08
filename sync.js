@@ -1,13 +1,29 @@
 ﻿const fps = 25;
-setInterval(sync, 1000 / fps / 2);
-
+var dotBuilder;
+var dotBuilderIntervall;
+var syncIntervall;
 var leftBeep;
 var rightBeep;
 
-function init ()  {
+!function init ()  {
     // console.log(new Date());
     leftBeep = document.getElementById("leftBeep");
     rightBeep = document.getElementById("rightBeep");
+    dotBuilder = 0;
+    dotBuilderIntervall = setInterval(build, 1000 / fps);
+}();
+
+function build () {
+    if (dotBuilder < fps)
+    {
+        document.getElementById((dotBuilder < 10 ? `0${dotBuilder}` : dotBuilder).toString()).style.visibility = 'visible';
+        document.getElementById((dotBuilder < 10 ? `0${dotBuilder}` : dotBuilder).toString()).style.transform = 'rotate(' + (360 / fps * dotBuilder) +'deg)';
+        dotBuilder++;
+    }
+    else {
+        clearInterval(dotBuilderIntervall);
+        syncIntervall = setInterval(sync, 1000 / fps / 2);
+    }
 }
 
 
@@ -44,7 +60,6 @@ function sync() {
     let time = `${hrs}:${mins}:${secs}:${frames}`;
     document.getElementById("timecode").innerText = time;
 
-
     /* Flash current dot */
     var dot = document.getElementsByClassName("dot");
     for (var i = 0; i < dot.length; i++)
@@ -80,6 +95,3 @@ function sync() {
         document.getElementById("clock").style.borderColor = 'gray';
     }
 }
-
-init();
-sync();

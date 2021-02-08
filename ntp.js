@@ -27,6 +27,8 @@ var serverTime;
         /* Date provides client time */
         clientTime = new Date();
         console.log("clientTime: " + clientTime);
+        document.getElementById("clientTime").innerHTML = "clientTime: " +  clientTime.toString();
+
         (u.Date = o).prototype = n.prototype, o.__ntpjsVersion = n.__ntpjsVersion, o.UTC = n.UTC, n.parse && (o.parse = n.parse), o.__ntpjsMillisecondsAheadBy = t, n.now && (o.now = function() {
             return n.now() - t
         })
@@ -34,7 +36,12 @@ var serverTime;
         /* Date provides client time */
         serverTime = new Date();
         console.log("serverTime: " + serverTime);
+        document.getElementById("serverTime").innerHTML = "serverTime: " + serverTime.toString();
+
+        /* Delta Time */
         console.log("Time Difference: " + (clientTime - serverTime) / 1000 + " sec");
+        document.getElementById("deltaTime").innerHTML = "Time Difference: " + (clientTime - serverTime) / 1000 + " sec";
+
     }
 
     function c(e) {
