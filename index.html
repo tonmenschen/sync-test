@@ -7,8 +7,10 @@
     <link rel="stylesheet" href="sync.css">
     <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
 
-    <script src="sync.js" defer></script>
+    <!-- <script src="https://use.ntpjs.org/ntp.js" async defer></script> -->
     <script src="ntp.js" async defer></script>
+    <script src="sync.js" defer></script>
+  
 
     <title>Sync-Test</title>
 </head>
@@ -40,12 +42,20 @@
         <div id="23" class="dot dot23">&#11044;</div>
         <div id="24" class="dot dot24">&#11044;</div>
         <div id="timecode">00:00:00:00</div>
-        <div id="status">Click to start audio (buggy!)</div>
+        <div id="status">Click to start audio</div>
     </div>
     <div class="ping-pong">
         <div id="box" class="box"></div>
     </div>
-    <audio id="leftBeep" src="left.wav" type="audio/wav" preload="auto" controls="none" style="display: none;">Your browser does not support the <code>audio</code> element.</audio>
-    <audio id="rightBeep" src="right.wav" type="audio/wav" preload="auto" controls="none" style="display: none;">Your browser does not support the <code>audio</code> element.</audio>
+    <audio id="leftBeep" preload="auto" controls="none" style="display: none;">
+        <source src="left.wav" type="audio/wav">
+        <source src="left.mp3" type="audio/mpeg">
+        Your browser does not support the <code>audio</code> element.
+    </audio>
+    <audio id="rightBeep" preload="auto" controls="none" style="display: none;">
+        <source src="right.wav" type="audio/wav">
+        <source src="right.mp3" type="audio/mpeg">
+        Your browser does not support the <code>audio</code> element.
+    </audio>
 </body>
 </html>

@@ -25,15 +25,16 @@ var serverTime;
             }
         }
         /* Date provides client time */
-        console.log(new Date());
         clientTime = new Date();
+        console.log("clientTime: " + clientTime);
         (u.Date = o).prototype = n.prototype, o.__ntpjsVersion = n.__ntpjsVersion, o.UTC = n.UTC, n.parse && (o.parse = n.parse), o.__ntpjsMillisecondsAheadBy = t, n.now && (o.now = function() {
             return n.now() - t
         })
 
         /* Date provides client time */
-        console.log(new Date());
         serverTime = new Date();
+        console.log("serverTime: " + serverTime);
+        console.log("Time Difference: " + (clientTime - serverTime) / 1000 + " sec");
     }
 
     function c(e) {
@@ -81,5 +82,4 @@ var serverTime;
         }, (s = document.createElement("script")).src = "https://use.ntpjs.org/v1/time.js", document.body.appendChild(s));
         var o, s, a, r, i
     }()
-    console.log("Time Difference: " + (clientTime - serverTime) / 1000 + " sec");
 }();
