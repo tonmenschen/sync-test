@@ -1,3 +1,6 @@
+var clientTime;
+var serverTime;
+
 ! function() {
     Date.__ntpjsVersion = 1.2;
     var u = this;
@@ -20,9 +23,17 @@
                 default:
                     return new n(arguments[0], arguments[1], arguments[2], arguments[3], arguments[4])
             }
-        }(u.Date = o).prototype = n.prototype, o.__ntpjsVersion = n.__ntpjsVersion, o.UTC = n.UTC, n.parse && (o.parse = n.parse), o.__ntpjsMillisecondsAheadBy = t, n.now && (o.now = function() {
+        }
+        /* Date provides client time */
+        console.log(new Date());
+        clientTime = new Date();
+        (u.Date = o).prototype = n.prototype, o.__ntpjsVersion = n.__ntpjsVersion, o.UTC = n.UTC, n.parse && (o.parse = n.parse), o.__ntpjsMillisecondsAheadBy = t, n.now && (o.now = function() {
             return n.now() - t
         })
+
+        /* Date provides client time */
+        console.log(new Date());
+        serverTime = new Date();
     }
 
     function c(e) {
@@ -70,4 +81,5 @@
         }, (s = document.createElement("script")).src = "https://use.ntpjs.org/v1/time.js", document.body.appendChild(s));
         var o, s, a, r, i
     }()
+    console.log("Time Difference: " + (clientTime - serverTime) / 1000 + " sec");
 }();

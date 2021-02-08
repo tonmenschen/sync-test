@@ -5,7 +5,7 @@ var leftBeep;
 var rightBeep;
 
 function init ()  {
-    console.log(new Date());
+    // console.log(new Date());
     leftBeep = document.getElementById("leftBeep");
     rightBeep = document.getElementById("rightBeep");
 }
@@ -58,14 +58,12 @@ function sync() {
     {
         document.getElementById("clock").style.borderColor = 'red';
 
-        console.log(secs % 2);
-
         if (secs % 2 == 0) {
             document.getElementById("box").style.left = 'calc(100vw - 5vmin)';
 
             if (leftBeep.duration > 0 && leftBeep.paused) {
                 leftBeep.play();
-                console.log("Left Played @ " + secs);
+                // console.log("Left Played @ " + secs);
             }
         }
         else {
@@ -73,7 +71,7 @@ function sync() {
 
             if (rightBeep.duration > 0 && rightBeep.paused) {
                 rightBeep.play();
-                console.log("Right Played @ " + secs);
+                // console.log("Right Played @ " + secs);
             }
         }
     }
