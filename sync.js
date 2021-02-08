@@ -3,21 +3,28 @@ setInterval(sync, 1000 / fps / 2);
 
 var leftBeep;
 var rightBeep;
-leftBeep = new sound("left.wav");
-rightBeep = new sound("right.wav");
 
-
-function sound(src) {
-    this.sound = document.createElement("audio");
-    this.sound.src = src;
-    this.sound.setAttribute("preload", "auto");
-    this.sound.setAttribute("controls", "none");
-    this.sound.style.display = "none";
-    document.body.appendChild(this.sound);
-    this.play = function () {
-        this.sound.play();
-    }
+function init ()  {
+    console.log(new Date());
+    leftBeep = document.getElementById("leftBeep");
+    rightBeep = document.getElementById("rightBeep");
 }
+
+
+// leftBeep = new sound("left.wav");
+// rightBeep = new sound("right.wav");
+
+// function sound(src) {
+//     this.sound = document.createElement("audio");
+//     this.sound.src = src;
+//     this.sound.setAttribute("preload", "auto");
+//     this.sound.setAttribute("controls", "none");
+//     this.sound.style.display = "none";
+//     document.body.appendChild(this.sound);
+//     this.play = function () {
+//         this.sound.play();
+//     }
+// }
 
 
 function sync() {
@@ -50,15 +57,24 @@ function sync() {
     if (frames < 1)
     {
         document.getElementById("clock").style.borderColor = 'red';
-        leftBeep.play();
+
+        console.log(secs % 2);
 
         if (secs % 2 == 0) {
             document.getElementById("box").style.left = 'calc(100vw - 5vmin)';
-            leftBeep.play();
+
+            if (leftBeep.duration > 0 && leftBeep.paused) {
+                leftBeep.play();
+                console.log("Left Played @ " + secs);
+            }
         }
         else {
             document.getElementById("box").style.left = '0vw';
-            rightBeep.play();
+
+            if (rightBeep.duration > 0 && rightBeep.paused) {
+                rightBeep.play();
+                console.log("Right Played @ " + secs);
+            }
         }
     }
     else
@@ -67,4 +83,5 @@ function sync() {
     }
 }
 
+init();
 sync();

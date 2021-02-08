@@ -3,9 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
     <link rel="stylesheet" href="sync.css">
-    <script defer src="sync.js"></script>
     <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+
+    <script defer src="sync.js"></script>
+    <script defer async src="https://use.ntpjs.org/ntp.js"></script>
+
     <title>Sync-Test</title>
 </head>
 <body>
@@ -41,5 +45,7 @@
     <div class="ping-pong">
         <div id="box" class="box"></div>
     </div>
+    <audio id="leftBeep" src="left.wav" type="audio/wav" preload="auto" controls="none" style="display: none;">Your browser does not support the <code>audio</code> element.</audio>
+    <audio id="rightBeep" src="right.wav" type="audio/wav" preload="auto" controls="none" style="display: none;">Your browser does not support the <code>audio</code> element.</audio>
 </body>
 </html>
