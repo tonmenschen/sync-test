@@ -40,14 +40,29 @@ function init() {
     previousFrame = 99;
     readyForNextFrame = true;
 
-    //Set default FPS: 25
-    changeFps(25);
-
     //Set delauft Sound: off
     changeSound("off");
 
     //Auto Re-Sync every minute
     setInterval(sync, 60000);
+
+    //Iniciate snyc to estalish web socket connetction
+    // will call changeFps(), will call sync()
+    preSync();
+}
+
+function preSync() {
+    console.log("Presync Start: " + Date.now());
+    let preRequest = new XMLHttpRequest();
+    preRequest.open('GET', 'https://worldtimeapi.org/api/ip', true);
+    preRequest.send();
+    preRequest.onreadystatechange = function () {
+        if (preRequest.readyState == XMLHttpRequest.DONE) {
+            console.log("Presync Done: " + Date.now());
+            //Set default FPS: 25
+            changeFps(25);
+        }
+    }
 }
 
 function reset() {
