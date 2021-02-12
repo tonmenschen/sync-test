@@ -1,107 +1,124 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
+
     <link rel="stylesheet" href="sync.css">
     <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
 
     <script src="sync.js" defer></script>
-  
+
 
     <title>Sync-Test</title>
 </head>
+
 <body>
-    <audio id="leftBeep" preload="auto" controls="none" style="display: none;">
-        <source src="left.wav" type="audio/wav">
-        <source src="left.mp3" type="audio/mpeg">
+    <audio id="soundPing" preload="auto" controls="none" style="display: none;">
+        <source src="sounds/left.wav" type="audio/wav">
+        <source src="sounds/left.mp3" type="audio/mpeg">
         Your browser does not support the <code>audio</code> element.
     </audio>
-    <audio id="rightBeep" preload="auto" controls="none" style="display: none;">
-        <source src="right.wav" type="audio/wav">
-        <source src="right.mp3" type="audio/mpeg">
+    <audio id="soundPong" preload="auto" controls="none" style="display: none;">
+        <source src="sounds/right.wav" type="audio/wav">
+        <source src="sounds/right.mp3" type="audio/mpeg">
         Your browser does not support the <code>audio</code> element.
     </audio>
+    <audio id="soundBeep" preload="auto" controls="none" style="display: none;">
+        <source src="sounds/beep.wav" type="audio/wav">
+        <source src="sounds/beep.mp3" type="audio/mpeg">
+        Your browser does not support the <code>audio</code> element.
+    </audio>
+    <div id="pulse" class="clock pulse"></div>
     <div id="clock" class="clock">
-        <div id="00" class="dot dot00">&#11044;</div>
-        <div id="01" class="dot dot01">&#11044;</div>
-        <div id="02" class="dot dot02">&#11044;</div>
-        <div id="03" class="dot dot03">&#11044;</div>
-        <div id="04" class="dot dot04">&#11044;</div>
-        <div id="05" class="dot dot05">&#11044;</div>
-        <div id="06" class="dot dot06">&#11044;</div>
-        <div id="07" class="dot dot07">&#11044;</div>
-        <div id="08" class="dot dot08">&#11044;</div>
-        <div id="09" class="dot dot09">&#11044;</div>
-        <div id="10" class="dot dot10">&#11044;</div>
-        <div id="11" class="dot dot11">&#11044;</div>
-        <div id="12" class="dot dot12">&#11044;</div>
-        <div id="13" class="dot dot13">&#11044;</div>
-        <div id="14" class="dot dot14">&#11044;</div>
-        <div id="15" class="dot dot15">&#11044;</div>
-        <div id="16" class="dot dot16">&#11044;</div>
-        <div id="17" class="dot dot17">&#11044;</div>
-        <div id="18" class="dot dot18">&#11044;</div>
-        <div id="19" class="dot dot19">&#11044;</div>
-        <div id="20" class="dot dot20">&#11044;</div>
-        <div id="21" class="dot dot21">&#11044;</div>
-        <div id="22" class="dot dot22">&#11044;</div>
-        <div id="23" class="dot dot23">&#11044;</div>
-        <div id="24" class="dot dot24">&#11044;</div>
-        <div id="25" class="dot dot25">&#11044;</div>
-        <div id="26" class="dot dot26">&#11044;</div>
-        <div id="27" class="dot dot27">&#11044;</div>
-        <div id="28" class="dot dot28">&#11044;</div>
-        <div id="29" class="dot dot29">&#11044;</div>
-        <div id="30" class="dot dot30">&#11044;</div>
-        <div id="31" class="dot dot31">&#11044;</div>
-        <div id="32" class="dot dot32">&#11044;</div>
-        <div id="33" class="dot dot33">&#11044;</div>
-        <div id="34" class="dot dot34">&#11044;</div>
-        <div id="35" class="dot dot35">&#11044;</div>
-        <div id="36" class="dot dot36">&#11044;</div>
-        <div id="37" class="dot dot37">&#11044;</div>
-        <div id="38" class="dot dot38">&#11044;</div>
-        <div id="39" class="dot dot39">&#11044;</div>
-        <div id="40" class="dot dot40">&#11044;</div>
-        <div id="41" class="dot dot41">&#11044;</div>
-        <div id="42" class="dot dot42">&#11044;</div>
-        <div id="43" class="dot dot43">&#11044;</div>
-        <div id="44" class="dot dot44">&#11044;</div>
-        <div id="45" class="dot dot45">&#11044;</div>
-        <div id="46" class="dot dot46">&#11044;</div>
-        <div id="47" class="dot dot47">&#11044;</div>
-        <div id="48" class="dot dot48">&#11044;</div>
-        <div id="49" class="dot dot49">&#11044;</div>
-        <div id="50" class="dot dot50">&#11044;</div>
-        <div id="51" class="dot dot51">&#11044;</div>
-        <div id="52" class="dot dot52">&#11044;</div>
-        <div id="53" class="dot dot53">&#11044;</div>
-        <div id="54" class="dot dot54">&#11044;</div>
-        <div id="55" class="dot dot55">&#11044;</div>
-        <div id="56" class="dot dot56">&#11044;</div>
-        <div id="57" class="dot dot57">&#11044;</div>
-        <div id="58" class="dot dot58">&#11044;</div>
-        <div id="59" class="dot dot59">&#11044;</div>
+        <div id="00" class="dot">&#11044;</div>
+        <div id="01" class="dot">&#11044;</div>
+        <div id="02" class="dot">&#11044;</div>
+        <div id="03" class="dot">&#11044;</div>
+        <div id="04" class="dot">&#11044;</div>
+        <div id="05" class="dot">&#11044;</div>
+        <div id="06" class="dot">&#11044;</div>
+        <div id="07" class="dot">&#11044;</div>
+        <div id="08" class="dot">&#11044;</div>
+        <div id="09" class="dot">&#11044;</div>
+        <div id="10" class="dot">&#11044;</div>
+        <div id="11" class="dot">&#11044;</div>
+        <div id="12" class="dot">&#11044;</div>
+        <div id="13" class="dot">&#11044;</div>
+        <div id="14" class="dot">&#11044;</div>
+        <div id="15" class="dot">&#11044;</div>
+        <div id="16" class="dot">&#11044;</div>
+        <div id="17" class="dot">&#11044;</div>
+        <div id="18" class="dot">&#11044;</div>
+        <div id="19" class="dot">&#11044;</div>
+        <div id="20" class="dot">&#11044;</div>
+        <div id="21" class="dot">&#11044;</div>
+        <div id="22" class="dot">&#11044;</div>
+        <div id="23" class="dot">&#11044;</div>
+        <div id="24" class="dot">&#11044;</div>
+        <div id="25" class="dot">&#11044;</div>
+        <div id="26" class="dot">&#11044;</div>
+        <div id="27" class="dot">&#11044;</div>
+        <div id="28" class="dot">&#11044;</div>
+        <div id="29" class="dot">&#11044;</div>
+        <div id="30" class="dot">&#11044;</div>
+        <div id="31" class="dot">&#11044;</div>
+        <div id="32" class="dot">&#11044;</div>
+        <div id="33" class="dot">&#11044;</div>
+        <div id="34" class="dot">&#11044;</div>
+        <div id="35" class="dot">&#11044;</div>
+        <div id="36" class="dot">&#11044;</div>
+        <div id="37" class="dot">&#11044;</div>
+        <div id="38" class="dot">&#11044;</div>
+        <div id="39" class="dot">&#11044;</div>
+        <div id="40" class="dot">&#11044;</div>
+        <div id="41" class="dot">&#11044;</div>
+        <div id="42" class="dot">&#11044;</div>
+        <div id="43" class="dot">&#11044;</div>
+        <div id="44" class="dot">&#11044;</div>
+        <div id="45" class="dot">&#11044;</div>
+        <div id="46" class="dot">&#11044;</div>
+        <div id="47" class="dot">&#11044;</div>
+        <div id="48" class="dot">&#11044;</div>
+        <div id="49" class="dot">&#11044;</div>
+        <div id="50" class="dot">&#11044;</div>
+        <div id="51" class="dot">&#11044;</div>
+        <div id="52" class="dot">&#11044;</div>
+        <div id="53" class="dot">&#11044;</div>
+        <div id="54" class="dot">&#11044;</div>
+        <div id="55" class="dot">&#11044;</div>
+        <div id="56" class="dot">&#11044;</div>
+        <div id="57" class="dot">&#11044;</div>
+        <div id="58" class="dot">&#11044;</div>
+        <div id="59" class="dot">&#11044;</div>
+
         <div id="timecode">WA:IT:SY:NC</div>
-        <div class="info">
-            <!-- <div id="status" class="status">Click to start audio</div> -->
-            <div id="clientTime" class="status">Client-Time: </div>
-            <div id="serverTime" class="status">Server-Time: </div>
-            <div id="deltaTime" class="status">Server-Time: </div>
+        <div class="settings status">
+            <div class="status" style="margin-left: 6vmin;">Status:</div>
+            <div id="status" class="status">&#11044; Sync init</div>
+            <div id="offset" class="status" style="clear: left; width: 100%; text-align: center;"></div>
         </div>
-        <div class="settings">
+        <div class="settings fps">
             <div class="label">FPS:</div>
-            <button id="fps24" class="button" onclick="changeFps(24)">24</button>
-            <button id="fps25" class="button" onclick="changeFps(25)">25</button>
-            <button id="fps30" class="button" onclick="changeFps(30)">30</button>
-            <button id="fps50" class="button" onclick="changeFps(50)">50</button>
-            <button id="fps60" class="button" onclick="changeFps(60)">60</button>
+            <button id="fps24" class="button fps" onclick="changeFps(24)">24</button>
+            <button id="fps25" class="button fps" onclick="changeFps(25)">25</button>
+            <button id="fps30" class="button fps" onclick="changeFps(30)">30</button>
+            <button id="fps50" class="button fps" onclick="changeFps(50)">50</button>
+            <button id="fps60" class="button fps" onclick="changeFps(60)">60</button>
+        </div>
+        <div class="settings sound">
+            <div class="label">Sound:</div>
+            <button id="off" class="button sound" onclick="changeSound('off')">Off</button>
+            <button id="ping-pong" class="button sound" onclick="changeSound('ping-pong')">Ping-Pong</button>
+            <button id="beep" class="button sound" onclick="changeSound('beep')">Beep</button>
+            <!-- <button id="tone" class="button" onclick="changeSound('tone')">-23LUFS</button>
+            <button id="ltc" class="button" onclick="changeSound('ltc')">LTC</button> -->
         </div>
     </div>
     <div class="ping-pong">
         <div id="box" class="box"></div>
     </div>
 </body>
+
 </html>
