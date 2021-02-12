@@ -75,7 +75,6 @@ html, body {
     margin: 52vmin auto;
     font-size: 1em;
     font-size: 1.5vmin;
-    font-family: Courier New, Courier, monospace;
     color: black;
 }
 
@@ -89,6 +88,56 @@ html, body {
     right: 0;
     top: 0;
     bottom: 0;*/
+}
+
+.settings {
+    position: absolute;
+    width: 50vmin;
+    /* height: 15vmin; */
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: 22.5vmin auto;
+    color: black;
+}
+
+.label {
+    position: relative;
+    float: left;
+    font-size: 2em;
+    font-size: 3vmin;
+    padding: 0.5vmin 2vmin;
+}
+
+.button {
+    background-color: lightgray;
+    border: none;
+    color: black;
+    margin: 0;
+    padding: 0.5vmin 2vmin;
+    text-align: center;
+    vertical-align: middle;
+    text-decoration: none;
+    cursor: pointer;
+    font-family: Courier New, Courier, monospace;
+    font-size: 2em;
+    font-size: 3vmin;
+    float: left;
+}
+
+.button:hover {
+    background-color: green;
+  }
+
+.button:focus {
+    outline: 0;
+    background-color: red;
+}
+
+.active {
+    outline: 0;
+    background-color: red;
 }
 
 .ping-pong {
