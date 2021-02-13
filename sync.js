@@ -1,4 +1,6 @@
-﻿var settingFps;
+﻿/* Timecode Sync by Martin Ulm, 2021, martin(at)tonmenschen.de */
+
+var settingFps;
 var settingSound;
 var dotBuilder;
 var dotBuilderIntervall;
@@ -52,13 +54,11 @@ function init() {
 }
 
 function preSync() {
-    console.log("Presync Start: " + Date.now());
     let preRequest = new XMLHttpRequest();
     preRequest.open('GET', 'https://worldtimeapi.org/api/ip', true);
     preRequest.send();
     preRequest.onreadystatechange = function () {
         if (preRequest.readyState == XMLHttpRequest.DONE) {
-            console.log("Presync Done: " + Date.now());
             //Set default FPS: 25
             changeFps(25);
         }
@@ -120,7 +120,7 @@ function build() {
     else {
         clearInterval(dotBuilderIntervall);
         //Start TC Running
-        updateIntervall = setInterval(update, 1000 / settingFps / 3);
+        updateIntervall = setInterval(update, 1000 / settingFps / 4);
     }
 }
 
@@ -130,8 +130,8 @@ function update() {
     let hrs = date.getHours();
     let mins = date.getMinutes();
     let secs = date.getSeconds();
-    let msec = date.getMilliseconds();
-    let frames = Math.floor(msec / 1000 * settingFps);
+    let msecs = date.getMilliseconds();
+    let frames = Math.floor(msecs / 1000 * settingFps);
 
     if (frames != previousFrame) {
         hrs = hrs < 10 ? `0${hrs}` : hrs;
@@ -224,7 +224,7 @@ function update() {
 
 
 function sync() {
-    let debugString = "";
+    // let debugString = "";
     let request = new XMLHttpRequest();
     let timeRequest; //Time @ Status 2: HEADERS_RECEIVED -> server starts response
     let timeAnswer;  //Time @ Status 4: DONE -> JSON time liegt vor
@@ -240,11 +240,11 @@ function sync() {
 
     //Query Time-Server 
     request.open('GET', 'https://worldtimeapi.org/api/ip', true);
-    debugString += request.readyState + ":" + Date.now() + ",";
+    // debugString += request.readyState + ":" + Date.now() + ",";
     request.send();
 
     request.onreadystatechange = function () {
-        debugString += request.readyState + ":" + Date.now() + ",";
+        // debugString += request.readyState + ":" + Date.now() + ",";
 
         //Store timeRequest when XMLHttpRequest.HEADERS_RECEIVED (request received)
         if (request.readyState == 2) {
@@ -261,8 +261,8 @@ function sync() {
                 serverTime = Date.parse(timeJSON);
                 clientTime = serverTime + timeDelta * 2; //timeDelta passed since server pulled timestamp, x 2 to compensate for roundtrip
                 syncOffset = clientTime - Date.now();
-                debugString += "JSON :" + serverTime + ",Offset: " + syncOffset;
-                console.log(debugString);
+                // debugString += "JSON :" + serverTime + ",Offset: " + syncOffset;
+                // console.log(debugString);
 
                 statusHTML.innerHTML = "&#11044; Sync Ok!";
                 statusHTML.style.color = 'green';
